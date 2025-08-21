@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+</head>
+<body>
+    
+    <h1>My portfolio page</h1>
+
+    
+
+    <button onclick="skills()">Skills</button>
+    <button onclick="references()">References</button>
+    
+    <div id="root"></div>
+
+    <script>
+        function skills() {
+            x = "<p>Skills page</p>"
+            document.getElementById("root").innerHTML = x
+        }
+
+         function references() {
+            x = "<p>My reference projects</p>"
+            document.getElementById("root").innerHTML = x
+        }
+
+    </script>
+
+</body>
+</html>
