@@ -7,6 +7,10 @@ puhelimet.forEach(puh => {
     console.log(puh)
 })
 
+puhelimet.map(puh => {
+    console.log(puh)
+})
+
 // Suorita: node silmukat.js
 
 
