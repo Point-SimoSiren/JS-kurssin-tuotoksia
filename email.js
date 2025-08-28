@@ -1,5 +1,5 @@
 
-const email = "olli.juhola@careeria.fi"
+const email = "rainer.savola@careeria.fi"
 
 const nimiOsa = email.split("@")[0]
 const loppuOsa = email.split("@")[1]
