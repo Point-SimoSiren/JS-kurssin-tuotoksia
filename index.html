@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My portfolio</title>
 </head>
-<body>
+<body style="text-align: center;">
     
-    <h1>My portfolio page</h1>
+        <h1>My portfolio page</h1>
 
-    
-
-    <button onclick="skills()">Skills</button>
-    <button onclick="references()">References</button>
-    
-    <div id="root"></div>
+        <button onclick="skills()">Skills</button>
+        <button onclick="references()">References</button>
+        
+        <div id="root"></div>
 
     <script>
         function skills() {
-            x = "<p>Skills page</p>"
+           let x = `<h3>My skills</h3>
+                <ul>
+                    <li>C#</li>
+                    <li>.NET</li>
+                    <li>Unity</li>
+                    <li>SQL Server</li>
+                    <li>JavaScript</li>
+                    <li>Node.js</li>
+                </ul>`
+
             document.getElementById("root").innerHTML = x
         }
 
