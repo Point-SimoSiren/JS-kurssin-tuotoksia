@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cool Korttinäkymä — Raflaava tyyli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1: #0f172a; /* tumma pohja */
+      --accent-1: #7c3aed; /* violetti */
+      --accent-2: #06b6d4; /* cyan */
+      --glass: rgba(255,255,255,0.06);
+      --glass-2: rgba(255,255,255,0.03);
+      --card-radius: 18px;
+      --glass-border: rgba(255,255,255,0.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.12), transparent 6%),
+                  radial-gradient(900px 400px at 90% 90%, rgba(6,182,212,0.08), transparent 8%),
+                  var(--bg-1);
+      color: #e6eef8;
+      padding:48px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;
+    }
+    h1{font-size:20px;margin:0;font-weight:700;letter-spacing:-0.02em}
+    p.lead{margin:4px 0 0 0;color: #b8d6ea;font-size:13px}
+
+    /* grid: first row has 2 cards side-by-side, below them single column */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:20px;
+    }
+
+    /* make a layout where first two cards are side-by-side, the rest span full width below */
+    .card{position:relative;background:linear-gradient(180deg,var(--glass), var(--glass-2));
+      border-radius:var(--card-radius);padding:20px;backdrop-filter: blur(8px) saturate(130%);
+      border:1px solid var(--glass-border);box-shadow: 0 8px 30px rgba(2,6,23,0.6);overflow:hidden;transition:transform .4s cubic-bezier(.2,.9,.2,1),box-shadow .3s}
+
+    /* decorative neon borders */
+    .card::before{
+      content:"";position:absolute;inset:-1px;background:linear-gradient(90deg,var(--accent-1), var(--accent-2));opacity:0.06;filter:blur(18px);z-index:0}
+    .card *{position:relative;z-index:1}
+
+    /* first row cards keep normal width; any card after the first row should span 2 columns */
+    .cards .card:nth-child(n+3){grid-column: 1 / -1}
+
+    .card .eyebrow{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#cfeaf6;margin-bottom:8px}
+    .card h2{margin:0 0 10px 0;font-size:18px}
+    .card p{margin:0;color:#c7dff0;line-height:1.45}
+
+    /* accent ribbon */
+    .ribbon{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;box-shadow:0 6px 18px rgba(6,182,212,0.12)}
+
+    /* floating icon */
+    .orb{position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:50%;background:conic-gradient(from 120deg,var(--accent-2),transparent 40%, rgba(124,58,237,0.08));filter:blur(24px);opacity:0.7;transform:rotate(12deg)}
+
+    /* hover effects */
+    .card:hover{transform:translateY(-10px) scale(1.01);box-shadow:0 28px 60px rgba(3,7,25,0.65)}
+    .card:active{transform:translateY(-6px) scale(.999)}
+
+    /* actions */
+    .actions{margin-top:16px;display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#e9f9ff;font-weight:600;cursor:pointer;backdrop-filter: blur(2px);transition:transform .18s}
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 8px 30px rgba(124,58,237,0.12)}
+
+    /* small meta row */
+    .meta{display:flex;gap:12px;align-items:center;margin-top:14px;color:#a8cfe0;font-size:13px}
+    .meta .dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 6px 18px rgba(6,182,212,0.08)}
+
+    /* responsiveness */
+    @media (max-width:860px){
+      .cards{grid-template-columns:1fr}
+      .cards .card:nth-child(n+3){grid-column:auto}
+      .orb{display:none}
+      body{padding:20px}
+    }
+
+    /* tiny shimmer animation for titles */
+    @keyframes shimmer{0%{background-position:-200px 0}100%{background-position:200px 0}}
+    .shimmer{
+      display:inline-block;background:linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.14) 50%, rgba(255,255,255,0.04) 100%);
+      background-size:400px 40px;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 2.5s linear infinite
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div>
+        <h1>Raflaava korttinäkymä <span style="font-weight:400;color:#9fcfe7;font-size:13px">— Cool & neon</span></h1>
+        <p class="lead">Ensimmäiset 2 korttia rinnakkain, muut allekkain. Responsiivinen ja tyylikäs.</p>
+      </div>
+      <div class="ribbon">NEW</div>
+    </header>
+
+    <section class="cards">
+
+      <!-- CARD 1 -->
+      <article class="card">
+        <div class="orb" aria-hidden></div>
+        <div class="eyebrow">Design</div>
+        <h2 class="shimmer">Neon-glass - Kortti</h2>
+        <p>Tämä kortti näyttää miten voit yhdistää glassmorphismin ja neon-efektin. Hoverilla kortti nousee ja saa syvemmän varjon.</p>
+        <div class="actions">
+          <button class="btn primary">Tutki</button>
+          <button class="btn">Lisätiedot</button>
+        </div>
+        <div class="meta"><span class="dot"></span><span>Uusin malli</span><span> • </span><span>3 min lukuaika</span></div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="card">
+        <div class="eyebrow">Käyttöliittymä</div>
+        <h2>Interaktiivinen kortti</h2>
+        <p>Voit lisätä kuvan, tilaa-ikonin tai videon. Kortin reuna saa hehkua kun siihen kiinnitetään huomiota.</p>
+        <div class="actions">
+          <button class="btn">Avaa</button>
+          <button class="btn primary">Toimi</button>
+        </div>
+        <div class="meta"><span class="dot"></span><span>Sisältyy pro-pakettiin</span></div>
+      </article>
+
+      <!-- CARD 3: spans full width -->
+      <article class="card">
+        <div class="eyebrow">Tarina</div>
+        <h2>Tarina — miksi tämä tyyli toimii</h2>
+        <p>Yhdistämällä selkeät typografiat ja hienovaraiset liukuvat efektit luodaan moderni, mutta arvokas tunnelma. Käytä hillittyjä animaatioita — liika vilkku voi viedä huomion.</p>
+      </article>
+
+      <!-- CARD 4 -->
+      <article class="card">
+        <div class="eyebrow">Esimerkki</div>
+        <h2>Painike- ja metafunktiot</h2>
+        <p>Kokeile vaihtaa gradientin värejä tai lisää pieni kuvake painikkeisiin. Korttien sisälle voi upottaa myös kaavioita tai korttilistoja.</p>
+      </article>
+
+      <!-- CARD 5 -->
+      <article class="card">
+        <div class="eyebrow">Lopuksi</div>
+        <h2>Muokkaa mukautetuksi</h2>
+        <p>Vaihda fontti, värit tai pyöristyksen määrä. Tämä on valmis lähtökohta näyttävälle esitykselle tai dashboardille.</p>
+      </article>
+
+    </section>
+
+  </div>
+</body>
+</html>
