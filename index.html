@@ -7,14 +7,33 @@
 </head>
 <body style="text-align: center;">
     
+    <div id="page">
         <h1>My portfolio page</h1>
 
         <button onclick="skills()">Skills</button>
         <button onclick="references()">References</button>
-        
+
+        <button onclick="dark()">Dark theme</button>
+        <button onclick="light()">Light theme</button>
+
         <div id="root"></div>
+    </div>
 
     <script>
+        // -- TEEMAAN LIITTYVÄT FUNKTIOT --------------
+        
+         function dark() {
+            document.getElementById("page").style.backgroundColor = "black"
+            document.getElementById("page").style.color = "silver"
+        }
+
+          function light() {
+            document.getElementById("page").style.backgroundColor = "white"
+            document.getElementById("page").style.color = "black"
+        }
+
+        //-- SIVUN NAVIGOINTIIN LIITTYVÄT FUNKTIOT ------
+
         function skills() {
            let x = `<h3>My skills</h3>
                 <ul>
