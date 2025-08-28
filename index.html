@@ -18,15 +18,31 @@
 
         <div id="root"></div>
 
+        <!-- Tänne tulee footer palkki-->
+         <h4 id="footer-text"></h4>
+
        <div id="korttinakyma-container" style="visibility: hidden;">
           <iframe src="kortti.html" style="width:100%; height:800px; border:none;"></iframe>
         </div>
 
-
-
     </div>
 
     <script>
+
+        function updateTime() {
+        // PVM haku footeriin -------------------
+         const nyt = new Date();
+        // Perus muotoilu suomeksi:
+        const suomeksi = nyt.toLocaleString("fi-FI");
+        // Tulostetaan koko Date-olio oletusmuodossa
+         document.getElementById("footer-text").textContent = suomeksi;
+        }
+        
+        // kutsutaan heti kerran aluksi
+        updateTime()
+
+        // ja sen jälkeen joka sekunti (1000 ms)
+        setInterval(updateTime, 1000)
 
 
         // -- TEEMAAN LIITTYVÄT FUNKTIOT --------------
