@@ -32,8 +32,17 @@
         function updateTime() {
         // PVM haku footeriin -------------------
          const nyt = new Date();
-        // Perus muotoilu suomeksi:
-        const suomeksi = nyt.toLocaleString("fi-FI");
+        // Muotoilu suomeksi:
+        const suomeksi = nyt.toLocaleString("fi-FI", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+            });
+
         // Tulostetaan koko Date-olio oletusmuodossa
          document.getElementById("footer-text").textContent = suomeksi;
         }
