@@ -1,3 +1,7 @@
+// Anna asennuskomennot:
+
+// npm init -y
+// npm install express
 
 // Luodaan yksinkertainen Express-palvelin
 const express = require('express')
