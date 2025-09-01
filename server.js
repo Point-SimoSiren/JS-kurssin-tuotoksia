@@ -24,6 +24,17 @@ app.get('/suomeksi', (req, res) => {
   res.send('Hei Maailma!')
 })
 
+/// GAMES DATA TOIMINNOT ///
+
+// Tuodaan pelidata
+const games = require('./games.json')
+
+// Reititys pelidatalle HTTP://localhost:3000/api/games
+app.get('/api/games', (req, res) => {
+  res.json(games)
+})
+
+
 // Käynnistetään palvelin
 app.listen(PORT, () => {
   console.log("Server is running on http://localhost:" + PORT)
