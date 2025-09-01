@@ -1,0 +1,8 @@
+
+[{"id": 1, "name": "GTA V", "genre": "Action", "publisher": "Rockstar Games", "releaseYear": 2013},
+ {"id": 2, "name": "The Witcher 3: Wild Hunt", "genre": "RPG", "publisher": "CD Projekt", "releaseYear": 2015},
+ {"id": 3, "name": "Minecraft", "genre": "Sandbox", "publisher": "Mojang", "releaseYear": 2011},
+ {"id": 4, "name": "Fortnite", "genre": "Battle Royale", "publisher": "Epic Games", "releaseYear": 2017},
+ {"id": 5, "name": "Cyberpunk 2077", "genre": "RPG", "publisher": "CD Projekt", "releaseYear": 2020}]
+
+ 
